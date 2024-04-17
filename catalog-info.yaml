@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: resident-marsupial-python-gitops
+  description: This is GitOps manifest for resident-marsupial-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: resident-marsupial-python
+    janus-idp.io/tekton: resident-marsupial-python 
+    backstage.io/kubernetes-id: resident-marsupial-python 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:resident-marsupial-python
